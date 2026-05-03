@@ -1,0 +1,29 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: maroow_postgres
+    environment:
+      POSTGRES_DB: maroow
+      POSTGRES_USER: maroow
+      POSTGRES_PASSWORD: maroow
+    ports:
+      - "5432:5432"
+    volumes:
+      - maroow_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U maroow -d maroow"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  redis:
+    image: redis:7-alpine
+    container_name: maroow_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - maroow_redis:/data
+
+volumes:
+  maroow_pg:
+  maroow_redis:

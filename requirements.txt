@@ -1,0 +1,11 @@
+aiogram>=3.20,<4
+SQLAlchemy[asyncio]>=2.0,<3
+asyncpg>=0.29,<1
+redis>=5,<7
+pydantic-settings>=2.2,<3
+APScheduler>=3.10,<4
+python-dotenv>=1,<2
+aiohttp>=3.9,<4
+orjson>=3.10,<4
+pytest>=8,<9
+pytest-asyncio>=0.23,<1
